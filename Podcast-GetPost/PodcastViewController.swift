@@ -39,6 +39,16 @@ class PodcastViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let podcastDetailViewController = segue.destination as? PodcastDetailViewController, let indexPath = podcastTableView.indexPathForSelectedRow else {
+            fatalError()
+        }
+        
+        let podcast = podcasts[indexPath.row]
+        podcastDetailViewController.podcast = podcast
+    }
+    
 }
 
 extension PodcastViewController: UITableViewDataSource  {

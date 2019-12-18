@@ -33,7 +33,7 @@ class PodcastAPIClient {
                     completion(.failure(.decodingError(error)))
                 }
             }
-    
+            
         }
     } //another function another
     
@@ -62,6 +62,43 @@ class PodcastAPIClient {
                 }
             }
         }
+    }
+    
+    static func postToFavorite(favorited: Favorited, completion: @escaping (Result<Bool, AppError>) -> ()) {
+        let favoriteEndpointURL = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
+        
+        guard let url = URL(string: favoriteEndpointURL)
+            else    {
+                completion(.failure(.badURL(favoriteEndpointURL)))
+                return
+        }
+        
+        do  {
+            let data = try JSONEncoder().encode(favorited)
+            
+            var urlRequest = URLRequest(url: url)
+            
+            urlRequest.httpMethod = "POST"
+            
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            urlRequest.httpBody = data
+            
+            NetworkHelper.shared.performDataTask(with: urlRequest) { (result) in
+                switch result   {
+                case .failure(let appError):
+                    completion(.failure(appError))
+                case .success:
+                    completion(.success(true))
+                }
+            }
+            
+        }
+            
+        catch {
+            completion(.failure(.encodingError(error)))
+        }
+        
     }
     
 }
