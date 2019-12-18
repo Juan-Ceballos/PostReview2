@@ -11,6 +11,7 @@ import UIKit
 class PodcastViewController: UIViewController {
 
     @IBOutlet weak var podcastTableView: UITableView!
+    @IBOutlet weak var podcastSearchBar: UISearchBar!
     
     var podcasts = [Podcast]()    {
         didSet  {
@@ -24,6 +25,7 @@ class PodcastViewController: UIViewController {
         super.viewDidLoad()
         podcastTableView.dataSource = self
         podcastTableView.delegate = self
+        podcastSearchBar.delegate = self
         loadData()
     }
     
@@ -64,11 +66,15 @@ extension PodcastViewController: UITableViewDelegate  {
 
 extension PodcastViewController: UISearchBarDelegate    {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        PodcastAPIClient.fetchSearchPodcast(searchText: searchBar.text ?? "") { (result) in
+            switch result   {
+            case .failure(let appError):
+                print(appError)
+            case .success(let podcast):
+                self.podcasts = podcast
+            }
+        }
+        podcastSearchBar.resignFirstResponder()
     }
 }
 

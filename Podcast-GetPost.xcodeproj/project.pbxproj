@@ -21,6 +21,7 @@
 		3E6940C223A94746002EBB65 /* PodcastAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6940C123A94746002EBB65 /* PodcastAPIClient.swift */; };
 		3E6940C423A9669E002EBB65 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6940C323A9669E002EBB65 /* PodcastCell.swift */; };
 		3E6940C623A96F94002EBB65 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6940C523A96F94002EBB65 /* UIImageView + Extensions.swift */; };
+		3E70605F23A9D3A00053DB9A /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70605E23A9D39F0053DB9A /* PodcastDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		3E6940C123A94746002EBB65 /* PodcastAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAPIClient.swift; sourceTree = "<group>"; };
 		3E6940C323A9669E002EBB65 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
 		3E6940C523A96F94002EBB65 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		3E70605E23A9D39F0053DB9A /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				3E69409523A88A9D002EBB65 /* AppDelegate.swift */,
 				3E69409723A88A9D002EBB65 /* SceneDelegate.swift */,
 				3E69409923A88A9D002EBB65 /* PodcastViewController.swift */,
+				3E70605E23A9D39F0053DB9A /* PodcastDetailViewController.swift */,
 				3E6940BD23A93EE9002EBB65 /* Podcast.swift */,
 				3E6940BF23A94376002EBB65 /* Favorited.swift */,
 				3E6940C323A9669E002EBB65 /* PodcastCell.swift */,
@@ -230,6 +233,7 @@
 				3E6940C223A94746002EBB65 /* PodcastAPIClient.swift in Sources */,
 				3E69409823A88A9D002EBB65 /* SceneDelegate.swift in Sources */,
 				3E6940C423A9669E002EBB65 /* PodcastCell.swift in Sources */,
+				3E70605F23A9D3A00053DB9A /* PodcastDetailViewController.swift in Sources */,
 				3E6940C023A94376002EBB65 /* Favorited.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

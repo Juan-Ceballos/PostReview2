@@ -44,6 +44,24 @@ class PodcastAPIClient {
             completion(.failure(.badURL(podcastEndpointURL)))
             return
         }
+        
+        let request = URLRequest(url: url)
+        
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result   {
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                
+                do  {
+                    let wrapper = try JSONDecoder().decode(PodcastWrapper.self, from: data)
+                    completion(.success(wrapper.results))
+                }
+                catch   {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
     }
     
 }
